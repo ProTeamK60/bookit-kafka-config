@@ -1,2 +1,2 @@
-# bookit-instance-config
-Contains scripts to configure instances on ec2
+# bookit-kafka-config
+Contains scripts to configure kafka instances on ec2
