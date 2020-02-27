@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cronfile=¤path.to.cronfile¤
-addresses=( $(dig +short ¤service.namespace¤) )
+addresses=( $(dig +short ¤service.namespace¤|sort) )
 if [[ ${#addresses[*]} -eq ¤number.of.instances¤ ]]
 then
   for i in ${!addresses[*]}
