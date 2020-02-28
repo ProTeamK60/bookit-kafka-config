@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 cronfile=/etc/cron.d/0configure-hosts
-addresses=( $(dig +short ¤service.namespace¤|sort) )
-if [[ ${#addresses[*]} -eq ¤number.of.instances¤ ]]
+addresses=( $(dig +short @service.namespace@|sort) )
+if [[ ${#addresses[*]} -eq @number.of.instances@ ]]
 then
   for i in ${!addresses[*]}
   do
