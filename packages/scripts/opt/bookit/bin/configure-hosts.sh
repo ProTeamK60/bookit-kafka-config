@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cronfile=¤path.to.cronfile¤
+cronfile=/etc/cron.d/0configure-hosts
 addresses=( $(dig +short ¤service.namespace¤|sort) )
 if [[ ${#addresses[*]} -eq ¤number.of.instances¤ ]]
 then
