@@ -16,7 +16,7 @@ do
 done
 sed 's/¤INSTANCE_NUMBER¤/'"${INSTANCE_NUMBER}"'/g;'\
 's/¤ZOOKEEPER_CONNECT_LIST¤/'"${ZOOKEEPER_CONNECT_LIST}"'/g'\
-./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
+ ./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
 
 adduser -r kafka
 chown -R kafka:kafka /opt/kafka
