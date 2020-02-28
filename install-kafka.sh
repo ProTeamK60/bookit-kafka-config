@@ -14,8 +14,8 @@ do
   [[ ${i} -eq ${INSTANCE_NUMBER} ]] && continue
   ZOOKEEPER_CONNECT_LIST="${ZOOKEEPER_CONNECT_LIST},zookeeper${i}:2181"
 done
-sed 's/¤INSTANCE_NUMBER¤/'"${INSTANCE_NUMBER}"'/g;'\
-'s/¤ZOOKEEPER_CONNECT_LIST¤/'"${ZOOKEEPER_CONNECT_LIST}"'/g'\
+sed 's/@INSTANCE_NUMBER@/'"${INSTANCE_NUMBER}"'/g;'\
+'s/@ZOOKEEPER_CONNECT_LIST@/'"${ZOOKEEPER_CONNECT_LIST}"'/g'\
  ./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
 
 adduser -r kafka
