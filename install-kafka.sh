@@ -20,6 +20,7 @@ sed 's/¤INSTANCE_NUMBER¤/'"${INSTANCE_NUMBER}"'/g;'\
 
 adduser -r kafka
 chown -R kafka:kafka /opt/kafka
+chown -R kafka:kafka /data/kafka-logs
 
 cp ./packages/kafka/service/etc/systemd/system/kafka.service /etc/systemd/system/kafka.service
 chmod 644 /etc/systemd/system/kafka.service
