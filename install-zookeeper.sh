@@ -13,6 +13,8 @@ do
 done
 mv /tmp/zoo.cfg /opt/zookeeper/home/conf/zoo.cfg
 cp ./packages/zookeeper/config/log4j.properties /opt/zookeeper/home/conf/log4j.properties
+mkdir /opt/zookeeper/home/logs
+ln -s /opt/zookeeper/home/logs /var/log/zookeeper
 
 adduser -r zookeeper
 chown -R zookeeper:zookeeper /opt/zookeeper
