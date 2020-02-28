@@ -12,6 +12,8 @@ do
   echo "server.$i=zookeeper$i:2888:3888" >> /tmp/zoo.cfg
 done
 mv /tmp/zoo.cfg /opt/zookeeper/home/conf/zoo.cfg
+cp ./packages/zookeeper/config/log4j.properties /opt/zookeeper/home/conf/log4j.properties
+
 adduser -r zookeeper
 chown -R zookeeper:zookeeper /opt/zookeeper
 
