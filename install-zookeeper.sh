@@ -1,4 +1,5 @@
 mkdir -p /data/zookeeper && \
+mkdir -p /opt/zookeeper && \
 (cd /opt/zookeeper && \
 curl -s -O http://apache.mirrors.spacedump.net/zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7-bin.tar.gz && \
 tar xf apache-zookeeper-3.5.7-bin.tar.gz && \
