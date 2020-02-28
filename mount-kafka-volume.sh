@@ -1,4 +1,4 @@
-#Find block device that is not xvda and have no
+#Find disk device without existing partition and mount it
 lsblk -pnlb|sed -E 's/ +/ /g' >lsblk.log
 UNMOUNTED_DISK=$( sqlite3 -batch diskdata.db <<EOF
 CREATE TABLE IF NOT EXISTS BLOCKS (Name, Maj, RM, Size, Type, RO, Mountpoint);
