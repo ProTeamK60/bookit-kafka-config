@@ -19,6 +19,7 @@ ln -s /opt/zookeeper/home/logs /var/log/zookeeper
 
 adduser -r zookeeper
 chown -R zookeeper:zookeeper /opt/zookeeper
+chown -R zookeeper:zookeeper /data/zookeeper
 
 cp ./packages/zookeeper/service/etc/systemd/system/zookeeper.service /etc/systemd/system/zookeeper.service
 chmod 644 /etc/systemd/system/zookeeper.service
