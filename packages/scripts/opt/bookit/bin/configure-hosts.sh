@@ -14,4 +14,5 @@ then
   done
   [ -e $cronfile ] && echo "rm $cronfile" | at now + 1 minute
   systemctl enable --now zookeeper.service
+  systemctl enable --now kafka.service
 fi
