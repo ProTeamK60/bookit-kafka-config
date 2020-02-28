@@ -1,11 +1,11 @@
-mkdir -p /opt/zookeeper/dataDir && \
+mkdir -p /data/zookeeper && \
 (cd /opt/zookeeper && \
 curl -s -O http://apache.mirrors.spacedump.net/zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7-bin.tar.gz && \
 tar xf apache-zookeeper-3.5.7-bin.tar.gz && \
 ln -s apache-zookeeper-3.5.7-bin home && \
 rm -f apache-zookeeper-3.5.7-bin.tar.gz)
 export ZOOKEEPER_HOME=/opt/zookeeper/home
-echo "$INSTANCE_NUMBER" > /opt/zookeeper/dataDir/myid
+echo "$INSTANCE_NUMBER" > /data/zookeeper/myid
 cp ./packages/zookeeper/config/zoo.cfg /tmp/zoo.cfg
 for (( i=1; i <= TOTAL_INSTANCES; i++ ))
 do
