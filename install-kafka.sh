@@ -18,6 +18,13 @@ sed 's/@INSTANCE_NUMBER@/'"${INSTANCE_NUMBER}"'/g;'\
 's/@ZOOKEEPER_CONNECT_LIST@/'"${ZOOKEEPER_CONNECT_LIST}"'/g'\
  ./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
 
+sed 's/@TOTAL_INSTANCES@/'"${TOTAL_INSTANCES}"'/g;'\
+ ./packages/scripts/opt/bookit/bin/create-topics-after-startup.sh > /opt/bookit/bin/create-topics-after-startup.sh
+chmod 744 /opt/bookit/bin/create-topics-after-startup.sh
+
+cp ./packages/cron/etc/cron.d/1create-topics /etc/cron.d/1create-topics
+chmod 644 /etc/cron.d/1create-topics
+
 adduser -r kafka
 chown -R kafka:kafka /opt/kafka
 chown -R kafka:kafka /data/kafka-logs
