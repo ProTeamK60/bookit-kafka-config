@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function create-topic() {
-  /opt/kafka/home/bin/kafka-existing_topics.sh --bootstrap-server localhost:9092\
+  /opt/kafka/home/bin/kafka-topics.sh --bootstrap-server localhost:9092\
   --create\
   --replication-factor @TOTAL_INSTANCES@\
   --partitions 1\
