@@ -14,12 +14,9 @@ do
   [[ ${i} -eq ${INSTANCE_NUMBER} ]] && continue
   ZOOKEEPER_CONNECT_LIST="${ZOOKEEPER_CONNECT_LIST},zookeeper${i}:2181"
 done
-sed 's/@INSTANCE_NUMBER@/'"${INSTANCE_NUMBER}"'/g;'\
-'s/@ZOOKEEPER_CONNECT_LIST@/'"${ZOOKEEPER_CONNECT_LIST}"'/g'\
- ./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
+sed 's/@INSTANCE_NUMBER@/'"${INSTANCE_NUMBER}"'/g;s/@ZOOKEEPER_CONNECT_LIST@/'"${ZOOKEEPER_CONNECT_LIST}"'/g' ./packages/kafka/config/server.properties > /opt/kafka/home/config/server.properties
 
-sed 's/@TOTAL_INSTANCES@/'"${TOTAL_INSTANCES}"'/g;'\
- ./packages/scripts/opt/bookit/bin/create-topics-after-startup.sh > /opt/bookit/bin/create-topics-after-startup.sh
+sed 's/@TOTAL_INSTANCES@/'"${TOTAL_INSTANCES}"'/g' ./packages/scripts/opt/bookit/bin/create-topics-after-startup.sh > /opt/bookit/bin/create-topics-after-startup.sh
 chmod 744 /opt/bookit/bin/create-topics-after-startup.sh
 
 cp ./packages/cron/etc/cron.d/1create-topics /etc/cron.d/1create-topics
