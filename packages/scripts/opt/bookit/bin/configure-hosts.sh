@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 cronfile=/etc/cron.d/0configure-hosts
-addresses=( $(dig +short @service.namespace@|sort) )
+declare -a addresses
+mapfile -t addresses < <(dig +short @service.namespace@|sort -t . -k 3n,3 )
 if [[ ${#addresses[*]} -eq @number.of.instances@ ]]
 then
   for i in ${!addresses[*]}
@@ -16,3 +17,5 @@ then
   systemctl enable --now zookeeper.service
   systemctl enable --now kafka.service
 fi
+unset cronfile
+unset addresses
